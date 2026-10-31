@@ -6,6 +6,8 @@ Detect potentially breaking changes **before** an agent or integration relies on
 
 > **Status: Free, supervised pilot.** ChangeProof currently runs as a locally operated prototype. There is no public API endpoint or production payment service available from this repository.
 
+**Product website:** [Visit ChangeProof](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/) — public interactive preview (illustrative demo only; not connected to the local backend or real payments).
+
 **See a sample output:** [ChangeProof compatibility report — MCP + OpenAPI](./ChangeProof_Sample_Compatibility_Report.md) · 3 MCP findings and 5 OpenAPI findings from **synthetic test fixtures**. This is an illustrative product demonstration, not an external customer result.
 
 ## The problem
