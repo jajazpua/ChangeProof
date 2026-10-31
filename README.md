@@ -6,6 +6,8 @@ Detect potentially breaking changes **before** an agent or integration relies on
 
 > **Status: Free, supervised pilot.** ChangeProof currently runs as a locally operated prototype. There is no public API endpoint or production payment service available from this repository.
 
+**See a sample output:** [ChangeProof compatibility report — MCP + OpenAPI](./ChangeProof_Sample_Compatibility_Report.md) · 3 MCP findings and 5 OpenAPI findings from **synthetic test fixtures**. This is an illustrative product demonstration, not an external customer result.
+
 ## The problem
 
 AI agents depend on tool and API contracts that evolve. A renamed parameter, removed field, newly required input, or changed response schema can break an integration even when the server is still online.
