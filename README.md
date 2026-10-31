@@ -60,7 +60,7 @@ Existing clients sending `query` may no longer work. This is an *illustrative ex
 I am looking for **three developers** who can share a real compatibility problem using **public or sanitized** MCP/OpenAPI definitions.
 
 1. Prepare two self-contained versions of a definition: **before** and **after**.
-2. [Open a pilot request](https://github.com/jajazpua/ChangeProof/issues/new) describing the problem. **Do not post private schemas or secrets in a public issue.**
+2. [Open a pilot request](https://github.com/jajazpua/ChangeProof/issues/new?template=pilot-request.yml) describing the problem. **Do not post private schemas or secrets in a public issue.**
 3. I will review the example, run a supervised local comparison where feasible, and share structured findings and a short explanation.
 4. Tell me what was useful, what was missing, and whether you would use this in your workflow.
 
@@ -95,4 +95,4 @@ This repository is a **public product overview and pilot contact point**, not th
 
 ---
 
-**Have an MCP or OpenAPI update that might break an AI agent?** [Request a free compatibility check](https://github.com/jajazpua/ChangeProof/issues/new).
+**Have an MCP or OpenAPI update that might break an AI agent?** [Request a free compatibility check](https://github.com/jajazpua/ChangeProof/issues/new?template=pilot-request.yml).
