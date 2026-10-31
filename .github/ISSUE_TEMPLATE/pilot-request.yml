@@ -1,0 +1,61 @@
+name: "ChangeProof — Free Compatibility Pilot"
+description: "Request a supervised, no-payment MCP / OpenAPI compatibility check"
+title: "[Pilot] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in ChangeProof.
+        This public form is for a **free, manually supervised pilot**. There is no hosted API, no payment and no wallet connection.
+        **Do not post secrets, private contract definitions, API keys, credentials, customer data, or non-public endpoints.**
+  - type: input
+    id: use-case
+    attributes:
+      label: "What are you building?"
+      description: "A short description of your MCP or OpenAPI integration."
+      placeholder: "An MCP server used by our agent to search documents"
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: "Definition type"
+      options:
+        - "MCP tool definitions (tools/list)"
+        - "OpenAPI 3.x"
+        - "Other / not sure"
+    validations:
+      required: true
+  - type: input
+    id: before
+    attributes:
+      label: "Public or sanitized BEFORE definition"
+      description: "Optional link only. Never link private repositories or confidential specifications."
+      placeholder: "https://example.com/public-before.json"
+  - type: input
+    id: after
+    attributes:
+      label: "Public or sanitized AFTER definition"
+      description: "Optional link only. Do not share confidential specifications."
+      placeholder: "https://example.com/public-after.json"
+  - type: textarea
+    id: changes
+    attributes:
+      label: "What changed or might break?"
+      description: "Describe the compatibility risk you want checked. If you cannot share safe definitions publicly, describe the problem only."
+      placeholder: "A required argument was renamed; existing clients may still send the old field."
+    validations:
+      required: true
+  - type: textarea
+    id: useful-outcome
+    attributes:
+      label: "What would make the result useful?"
+      description: "What decision would the report help you make?"
+      placeholder: "Identify breaking changes in CI before deployment."
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: "Data safety"
+      options:
+        - label: "I will share only public or sanitized information and no credentials, keys or confidential data."
+          required: true
