@@ -72,6 +72,18 @@ You can also join the [ChangeProof pilot conversation on Reddit](https://www.red
 
 **No wallet, API key, credentials, or payment required for the pilot.**
 
+## Request a paid compatibility check (manual quote)
+
+For a specific MCP/OpenAPI compatibility decision outside the free pilot, [request a manual quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml).
+
+1. **Request:** Describe the integration, decision, and approximate scope in the public GitHub form. **Do not share secrets or confidential data.**
+2. **Contracts:** Provide two public or sanitized before/after MCP `tools/list` or OpenAPI definitions. The operator confirms that the data and scope are suitable.
+3. **Agreement:** The operator quotes a price and agrees the scope, expected format, delivery and payment terms with the requester **before work begins**. Submitting the form does not commit either party to a transaction.
+4. **Supervised report:** The existing local ChangeProof prototype is run under operator supervision; the deliverable is a structural diff, machine-readable findings and a written assessment with uncertainty and validation limits stated explicitly.
+5. **Payment:** For an accepted paid engagement, payment is arranged **manually using an agreed method and timing**. There is **no live payment link, automatic checkout, production x402 settlement or agent-accessible paid endpoint** today. No payment details should be posted in GitHub issues.
+
+This is a request-for-quote workflow, not an unattended purchasing flow. Public issues are suitable only for public/sanitized examples; private submissions are not accepted through this form. No automated billing, SLA or guaranteed runtime behavior is offered.
+
 ## Current capabilities and limitations
 
 | Area | Current status |
