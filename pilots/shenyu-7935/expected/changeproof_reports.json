@@ -1,0 +1,68 @@
+{
+  "format_version": 1,
+  "locator_note": "ChangeProof V1.2.3 pointer strings are tool-name-keyed semantic locators; they are NOT RFC 6901 paths into the tools array. Use structural_changes.json for literal snapshot paths.",
+  "cases": {
+    "combined": {
+      "status": "REVIEW_REQUIRED",
+      "comparison_complete": true,
+      "structural_findings": [
+        {
+          "code": "TOOL_HINTS_CHANGED",
+          "role": "tool",
+          "pointer": "/tools/fixture_lookup/annotations",
+          "risk": "REVIEW"
+        },
+        {
+          "code": "REQUIRED_ADDED",
+          "role": "request",
+          "pointer": "/tools/fixture_lookup/inputSchema/required/workspace_id",
+          "risk": "BREAKING_CANDIDATE"
+        },
+        {
+          "code": "ENUM_VALUES_ADDED",
+          "role": "response",
+          "pointer": "/tools/fixture_lookup/outputSchema/properties/status/enum",
+          "risk": "BREAKING_CANDIDATE"
+        }
+      ],
+      "limitations": []
+    },
+    "annotation_only": {
+      "status": "REVIEW_REQUIRED",
+      "comparison_complete": true,
+      "structural_findings": [
+        {
+          "code": "TOOL_HINTS_CHANGED",
+          "role": "tool",
+          "pointer": "/tools/fixture_lookup/annotations",
+          "risk": "REVIEW"
+        }
+      ],
+      "limitations": []
+    },
+    "unsupported": {
+      "status": "INDETERMINATE",
+      "comparison_complete": false,
+      "structural_findings": [
+        {
+          "code": "COMPLEX_SCHEMA_CHANGED",
+          "role": "request",
+          "pointer": "/tools/fixture_lookup/inputSchema",
+          "risk": "INDETERMINATE"
+        }
+      ],
+      "limitations": [
+        {
+          "code": "COMPLEX_COMPOSITION",
+          "pointer": "/tools/fixture_lookup/inputSchema"
+        }
+      ]
+    },
+    "key_order_only": {
+      "status": "NO_CHANGE",
+      "comparison_complete": true,
+      "structural_findings": [],
+      "limitations": []
+    }
+  }
+}

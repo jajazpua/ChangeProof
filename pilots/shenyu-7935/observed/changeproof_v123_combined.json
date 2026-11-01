@@ -1,0 +1,32 @@
+{
+  "analysis_version": "deep-verification-v1.2.3",
+  "status": "REVIEW_REQUIRED",
+  "comparison_complete": true,
+  "structural_findings": [
+    {
+      "code": "TOOL_HINTS_CHANGED",
+      "role": "tool",
+      "pointer": "/tools/fixture_lookup/annotations",
+      "risk": "REVIEW",
+      "reason": "Advisory hints changed; not authorization guarantees"
+    },
+    {
+      "code": "REQUIRED_ADDED",
+      "role": "request",
+      "pointer": "/tools/fixture_lookup/inputSchema/required/workspace_id",
+      "risk": "BREAKING_CANDIDATE",
+      "reason": "New required input can reject existing callers"
+    },
+    {
+      "code": "ENUM_VALUES_ADDED",
+      "role": "response",
+      "pointer": "/tools/fixture_lookup/outputSchema/properties/status/enum",
+      "risk": "BREAKING_CANDIDATE",
+      "reason": "1 enum values added; exhaustive response consumers may need updates"
+    }
+  ],
+  "limitations": [],
+  "visits": 3,
+  "verdict": "No runtime/authorization compatibility claim. HIGH/BREAKING_CANDIDATE is a risk requiring evidence, not a proven failure.",
+  "checks": "Static source-only; no tool execution or remote fetch, no exhaustive schema implication proof"
+}

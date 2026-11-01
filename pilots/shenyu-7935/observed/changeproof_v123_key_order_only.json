@@ -1,0 +1,10 @@
+{
+  "analysis_version": "deep-verification-v1.2.3",
+  "status": "NO_CHANGE",
+  "comparison_complete": true,
+  "structural_findings": [],
+  "limitations": [],
+  "visits": 0,
+  "verdict": "No runtime/authorization compatibility claim. HIGH/BREAKING_CANDIDATE is a risk requiring evidence, not a proven failure.",
+  "checks": "Static source-only; no tool execution or remote fetch, no exhaustive schema implication proof"
+}

@@ -1,0 +1,23 @@
+{
+  "analysis_version": "deep-verification-v1.2.3",
+  "status": "INDETERMINATE",
+  "comparison_complete": false,
+  "structural_findings": [
+    {
+      "code": "COMPLEX_SCHEMA_CHANGED",
+      "role": "request",
+      "pointer": "/tools/fixture_lookup/inputSchema",
+      "risk": "INDETERMINATE",
+      "reason": "Complex schema logic changed; review source and test both revisions"
+    }
+  ],
+  "limitations": [
+    {
+      "code": "COMPLEX_COMPOSITION",
+      "pointer": "/tools/fixture_lookup/inputSchema"
+    }
+  ],
+  "visits": 1,
+  "verdict": "No runtime/authorization compatibility claim. HIGH/BREAKING_CANDIDATE is a risk requiring evidence, not a proven failure.",
+  "checks": "Static source-only; no tool execution or remote fetch, no exhaustive schema implication proof"
+}

@@ -1,0 +1,364 @@
+{
+  "format_version": 1,
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "manifest_algorithm",
+      "passed": true,
+      "detail": "Manifest declares SHA-256"
+    },
+    {
+      "name": "manifest_coverage",
+      "passed": true,
+      "detail": "Exactly 21 distributed files are tracked; manifest excludes itself"
+    },
+    {
+      "name": "distributed_file_integrity",
+      "passed": true,
+      "detail": "All 21 distributed file hashes match"
+    },
+    {
+      "name": "snapshot_shape_before",
+      "passed": true,
+      "detail": "Single synthetic tool in a tools/list result body"
+    },
+    {
+      "name": "snapshot_shape_combined",
+      "passed": true,
+      "detail": "Single synthetic tool in a tools/list result body"
+    },
+    {
+      "name": "snapshot_shape_annotation_only",
+      "passed": true,
+      "detail": "Single synthetic tool in a tools/list result body"
+    },
+    {
+      "name": "snapshot_shape_unsupported",
+      "passed": true,
+      "detail": "Single synthetic tool in a tools/list result body"
+    },
+    {
+      "name": "snapshot_shape_key_order_only",
+      "passed": true,
+      "detail": "Single synthetic tool in a tools/list result body"
+    },
+    {
+      "name": "local_schema_validation",
+      "passed": true,
+      "detail": "Ten schemas are valid under Draft 2020-12; no references are present"
+    },
+    {
+      "name": "structural_diff_combined",
+      "passed": true,
+      "detail": "3 literal structural changes match the authored expectation"
+    },
+    {
+      "name": "structural_diff_annotation_only",
+      "passed": true,
+      "detail": "1 literal structural changes match the authored expectation"
+    },
+    {
+      "name": "structural_diff_unsupported",
+      "passed": true,
+      "detail": "1 literal structural changes match the authored expectation"
+    },
+    {
+      "name": "structural_diff_key_order_only",
+      "passed": true,
+      "detail": "0 literal structural changes match the authored expectation"
+    },
+    {
+      "name": "input_inclusion_argument",
+      "passed": true,
+      "detail": "Only an existing optional property becomes required: I_new is a subset of I_old"
+    },
+    {
+      "name": "output_inclusion_argument",
+      "passed": true,
+      "detail": "Only the status enum expands: O_old is a subset of O_new"
+    },
+    {
+      "name": "witness_coverage",
+      "passed": true,
+      "detail": "Both counterexamples and both unchanged-valid examples are present"
+    },
+    {
+      "name": "witness_definition_old_input_missing_workspace",
+      "passed": true,
+      "detail": "Witness matches the independently specified regression case"
+    },
+    {
+      "name": "witness_old_input_missing_workspace_before",
+      "passed": true,
+      "detail": "valid=True; failed keywords=[]"
+    },
+    {
+      "name": "witness_old_input_missing_workspace_after",
+      "passed": true,
+      "detail": "valid=False; failed keywords=['required']"
+    },
+    {
+      "name": "witness_keyword_old_input_missing_workspace_after",
+      "passed": true,
+      "detail": "Expected rejecting validation keyword is present"
+    },
+    {
+      "name": "witness_definition_new_input_with_workspace",
+      "passed": true,
+      "detail": "Witness matches the independently specified regression case"
+    },
+    {
+      "name": "witness_new_input_with_workspace_before",
+      "passed": true,
+      "detail": "valid=True; failed keywords=[]"
+    },
+    {
+      "name": "witness_new_input_with_workspace_after",
+      "passed": true,
+      "detail": "valid=True; failed keywords=[]"
+    },
+    {
+      "name": "witness_definition_old_output_ready",
+      "passed": true,
+      "detail": "Witness matches the independently specified regression case"
+    },
+    {
+      "name": "witness_old_output_ready_before",
+      "passed": true,
+      "detail": "valid=True; failed keywords=[]"
+    },
+    {
+      "name": "witness_old_output_ready_after",
+      "passed": true,
+      "detail": "valid=True; failed keywords=[]"
+    },
+    {
+      "name": "witness_definition_new_output_paused",
+      "passed": true,
+      "detail": "Witness matches the independently specified regression case"
+    },
+    {
+      "name": "witness_new_output_paused_before",
+      "passed": true,
+      "detail": "valid=False; failed keywords=['enum']"
+    },
+    {
+      "name": "witness_keyword_new_output_paused_before",
+      "passed": true,
+      "detail": "Expected rejecting validation keyword is present"
+    },
+    {
+      "name": "witness_new_output_paused_after",
+      "passed": true,
+      "detail": "valid=True; failed keywords=[]"
+    },
+    {
+      "name": "expected_compatibility_directions",
+      "passed": true,
+      "detail": "Authored directions agree with the two counterexamples and isolated-edit inclusion arguments"
+    },
+    {
+      "name": "annotation_policy_separation",
+      "passed": true,
+      "detail": "Annotation control preserves schemas but retains a separate metadata-review judgment"
+    },
+    {
+      "name": "unsupported_requires_review",
+      "passed": true,
+      "detail": "No compatibility direction is asserted for the changed composition"
+    },
+    {
+      "name": "object_key_order_control",
+      "passed": true,
+      "detail": "Raw bytes differ; parsed JSON and fixture-only sorted-key digest agree"
+    },
+    {
+      "name": "recorded_engine_report_combined",
+      "passed": true,
+      "detail": "Recorded report matches expected status, completeness, findings, locators and limitations"
+    },
+    {
+      "name": "recorded_engine_report_annotation_only",
+      "passed": true,
+      "detail": "Recorded report matches expected status, completeness, findings, locators and limitations"
+    },
+    {
+      "name": "recorded_engine_report_unsupported",
+      "passed": true,
+      "detail": "Recorded report matches expected status, completeness, findings, locators and limitations"
+    },
+    {
+      "name": "recorded_engine_report_key_order_only",
+      "passed": true,
+      "detail": "Recorded report matches expected status, completeness, findings, locators and limitations"
+    }
+  ],
+  "structural_changes": {
+    "combined": [
+      {
+        "operation": "replace",
+        "json_pointer": "/tools/0/annotations/readOnlyHint",
+        "before": true,
+        "after": false
+      },
+      {
+        "operation": "replace",
+        "json_pointer": "/tools/0/inputSchema/required",
+        "before": [
+          "query"
+        ],
+        "after": [
+          "query",
+          "workspace_id"
+        ]
+      },
+      {
+        "operation": "replace",
+        "json_pointer": "/tools/0/outputSchema/properties/status/enum",
+        "before": [
+          "pending",
+          "ready"
+        ],
+        "after": [
+          "pending",
+          "ready",
+          "paused"
+        ]
+      }
+    ],
+    "annotation_only": [
+      {
+        "operation": "replace",
+        "json_pointer": "/tools/0/annotations/readOnlyHint",
+        "before": true,
+        "after": false
+      }
+    ],
+    "unsupported": [
+      {
+        "operation": "add",
+        "json_pointer": "/tools/0/inputSchema/allOf",
+        "after": [
+          {
+            "not": {
+              "required": [
+                "workspace_id"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "key_order_only": []
+  },
+  "witnesses": [
+    {
+      "id": "old_input_missing_workspace",
+      "valid_before": true,
+      "before_error_keywords": [],
+      "valid_after": false,
+      "after_error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "id": "new_input_with_workspace",
+      "valid_before": true,
+      "before_error_keywords": [],
+      "valid_after": true,
+      "after_error_keywords": []
+    },
+    {
+      "id": "old_output_ready",
+      "valid_before": true,
+      "before_error_keywords": [],
+      "valid_after": true,
+      "after_error_keywords": []
+    },
+    {
+      "id": "new_output_paused",
+      "valid_before": false,
+      "before_error_keywords": [
+        "enum"
+      ],
+      "valid_after": true,
+      "after_error_keywords": []
+    }
+  ],
+  "key_order_control": {
+    "structural_changes": false,
+    "parsed_json_equal": true,
+    "raw_file_hash_equal": false,
+    "fixture_sorted_json_digest_equal": true,
+    "semantic_equivalence_proof": false
+  },
+  "recorded_engine_reports": {
+    "combined": {
+      "status": "REVIEW_REQUIRED",
+      "comparison_complete": true,
+      "structural_findings": [
+        {
+          "code": "TOOL_HINTS_CHANGED",
+          "role": "tool",
+          "pointer": "/tools/fixture_lookup/annotations",
+          "risk": "REVIEW"
+        },
+        {
+          "code": "REQUIRED_ADDED",
+          "role": "request",
+          "pointer": "/tools/fixture_lookup/inputSchema/required/workspace_id",
+          "risk": "BREAKING_CANDIDATE"
+        },
+        {
+          "code": "ENUM_VALUES_ADDED",
+          "role": "response",
+          "pointer": "/tools/fixture_lookup/outputSchema/properties/status/enum",
+          "risk": "BREAKING_CANDIDATE"
+        }
+      ],
+      "limitations": []
+    },
+    "annotation_only": {
+      "status": "REVIEW_REQUIRED",
+      "comparison_complete": true,
+      "structural_findings": [
+        {
+          "code": "TOOL_HINTS_CHANGED",
+          "role": "tool",
+          "pointer": "/tools/fixture_lookup/annotations",
+          "risk": "REVIEW"
+        }
+      ],
+      "limitations": []
+    },
+    "unsupported": {
+      "status": "INDETERMINATE",
+      "comparison_complete": false,
+      "structural_findings": [
+        {
+          "code": "COMPLEX_SCHEMA_CHANGED",
+          "role": "request",
+          "pointer": "/tools/fixture_lookup/inputSchema",
+          "risk": "INDETERMINATE"
+        }
+      ],
+      "limitations": [
+        {
+          "code": "COMPLEX_COMPOSITION",
+          "pointer": "/tools/fixture_lookup/inputSchema"
+        }
+      ]
+    },
+    "key_order_only": {
+      "status": "NO_CHANGE",
+      "comparison_complete": true,
+      "structural_findings": [],
+      "limitations": []
+    }
+  },
+  "environment": {
+    "python": "3.12.14",
+    "jsonschema": "4.25.1"
+  },
+  "scope": "Independent fixture and recorded-report checks; no ChangeProof module imported, MCP tool invoked or arbitrary-schema compatibility theorem established."
+}

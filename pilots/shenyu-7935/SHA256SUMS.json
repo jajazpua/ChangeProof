@@ -1,0 +1,27 @@
+{
+  "algorithm": "SHA-256",
+  "scope": "Every distributed file except this manifest. Hashes establish byte consistency, not a signature or maintainer acceptance.",
+  "files": {
+    "README.md": "31926ab4e5260956d423b1197c488e260f216545178d69b27cc145c8d2f639db",
+    "REPORT.md": "7401ed52c3c7db9cead7e3e4eb0aa0f26562f6674303235946bb2a261bd5e3d4",
+    "SUBMISSION_DRAFT.md": "f57b03d1150bc43eb2aaed37f7441265a50438d4923b20270e3cdd61a962c8bb",
+    "expected/changeproof_reports.json": "7bf26fb41dc37346d5e5f3c991aa9d904392ea4ee1040c7c36219e0ee156b72e",
+    "expected/compatibility.json": "dcb83467fa743f801468e8b999d75ad0f14d83f5cff42dfd45b6a9b8d6157239",
+    "expected/structural_changes.json": "99ec246a8c873e6873689b0e608cd4567d02dd4dc7e2b16aa86298956f514439",
+    "observed/changeproof_v123_annotation_only.json": "020853454a91756ba566cb1bd69b5ccb40536a8ab11a47b2157fcfdf6962e994",
+    "observed/changeproof_v123_combined.json": "5099dbc6dbe9c670003e002a6612eb8b7a007a2f76c4e57a9ad5132491578816",
+    "observed/changeproof_v123_key_order_only.json": "3497783dbc739de0a8dfb6c58b1d68c6eac311afcbe72419f9e550b61f0ca785",
+    "observed/changeproof_v123_unsupported.json": "0e77bbb825f9b5bbfa5f6fd699ada879441dcdc33097041d694da96c7515acda",
+    "observed/independent_validation.json": "f45b26d4210cc23880f8a72a4f7f4bc0a937d77b0ff9a62cf41c7e9f199bc233",
+    "observed/validation_environment.json": "4b75cfa8d3f572bb136a489ff41c78dce43d45d98c24b1315882146f84fc1e63",
+    "provenance.json": "97184fc4c31f9a17d6c9c4d94440805e54633d5ea9e22bc37265522b6398ab81",
+    "reproduce_changeproof.py": "ce197c26276edf2e5de746e31af8d0a5a92e5a00b1df341570d8f921161ae08b",
+    "requirements.txt": "e1a9ff0400f49d71158bb0657d7a7263c847f464a317c0d4fe1bb73311925462",
+    "snapshots/annotation_only.after.tools-list.json": "aeb07ec7e38fd22a5dbde2b0b0acde4cf1411a8e9cff3bd665e3ac6073473a7d",
+    "snapshots/before.tools-list.json": "06bc36cd264ab034ed8d25f7194ba6686d98733c09322642be8454b2b9fb02f5",
+    "snapshots/combined.after.tools-list.json": "4aacc9a3e13e4b25ff509f89490bb2be54cb0c6b9e9507d584d783734f99bc8a",
+    "snapshots/key_order_only.after.tools-list.json": "ed2ee785e52ce16d9ddfe00f8a549d18a02626443895604890f4249b7e716bd4",
+    "snapshots/unsupported.after.tools-list.json": "05ceb314aaa398302131666a085ecff3f14944a02d3d8409d65ef1cb844ffcce",
+    "verify_fixture.py": "82b9289a2b4318d93d7a563da134eefc22be8857800e4d5e4bcd2958af033f2b"
+  }
+}
