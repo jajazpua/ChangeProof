@@ -1,0 +1,73 @@
+name: "ChangeProof — Paid Compatibility Check (Request a Quote)"
+description: "Request a manual quote for a supervised MCP/OpenAPI compatibility report. No payment is collected here."
+title: "[Quote] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Request a quote — no checkout or payment on GitHub
+        This is a **public issue**. Share only public or sanitized contract information.
+        Do not include credentials, private specifications, personal contact information,
+        wallet keys, confidential endpoints, customer data, or payment details.
+        We first review the scope, then agree a price and delivery terms **before**
+        performing paid work. The report is delivered manually. Payment arrangements
+        are handled separately only after explicit agreement; there is no production
+        checkout or public hosted ChangeProof API yet.
+        For a no-cost evaluation instead, use the separate **Free Compatibility Pilot** template.
+  - type: dropdown
+    id: definition-type
+    attributes:
+      label: "Contract type"
+      options:
+        - "MCP tools/list definitions"
+        - "OpenAPI 3.x"
+        - "Both MCP and OpenAPI"
+        - "Not sure"
+    validations:
+      required: true
+  - type: textarea
+    id: integration-context
+    attributes:
+      label: "Integration and decision to be made"
+      description: "Explain what is changing and what decision the report should support."
+      placeholder: "Before deploying a new MCP tool version, we need to identify changes that could reject existing callers."
+    validations:
+      required: true
+  - type: input
+    id: before-spec
+    attributes:
+      label: "BEFORE contract (public or sanitized link)"
+      description: "Optional. Only link openly shareable JSON/YAML or a public repository revision."
+      placeholder: "https://github.com/example/project/blob/old/spec.yaml"
+  - type: input
+    id: after-spec
+    attributes:
+      label: "AFTER contract (public or sanitized link)"
+      description: "Optional. Do not post private links."
+      placeholder: "https://github.com/example/project/blob/new/spec.yaml"
+  - type: dropdown
+    id: requested-scope
+    attributes:
+      label: "Expected scope"
+      options:
+        - "One before/after comparison"
+        - "Several changes or definitions"
+        - "Recurring checks (discovery only; no hosted service promised)"
+        - "Unsure — please help scope"
+    validations:
+      required: true
+  - type: textarea
+    id: report-needs
+    attributes:
+      label: "What should the report include?"
+      description: "Describe required structural findings, compatibility direction, formats, or review questions."
+      placeholder: "A machine-readable JSON report plus short Markdown explanation, with uncertain findings clearly marked for review."
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: "Data and commercial terms"
+      options:
+        - label: "I will share only public or sanitized information in this GitHub issue."
+          required: true
+        - label: "I understand this is a quote request, not an order or payment, and work starts only after we agree on scope and price."
+          required: true
