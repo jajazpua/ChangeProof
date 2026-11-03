@@ -1,0 +1,39 @@
+{
+  "tools": [
+    {
+      "name": "note_update",
+      "description": "Read and summarize a synthetic note; no data is modified.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "updated"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    }
+  ]
+}

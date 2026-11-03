@@ -1,0 +1,13 @@
+{
+  "algorithm": "SHA-256",
+  "bytes": "UTF-8 JSON files including trailing newline",
+  "snapshots": {
+    "annotation_only.after.tools-list.json": "bbba187ed02dce7683331069e7c2f04ac7a7fe777a1318870636e065ba0f6215",
+    "before.tools-list.json": "48ec6ccbd702017c99ee42bf42ab0768ccf5c67d7e0ec3fe4ad37b7503ba52a7",
+    "combined.after.tools-list.json": "310a70d9bf987c1e28180fc1d08567c313fddf91fa28e57cebd951fe28a460d2",
+    "description_only.after.tools-list.json": "dea88f0851ae0956989910a0849c3d37ac2532f66d0fa8f6a14152daf4cc3476",
+    "input_required_only.after.tools-list.json": "955cfe963523938cc85e32585a72982b9cf7bd72c436cd712117bfabfd04a80c",
+    "key_order_only.after.tools-list.json": "a8e8d98ecf55574e314517548e156a3b1bb8675c94fde68f4f1deb0c26d96394",
+    "output_enum_only.after.tools-list.json": "956f48c12d807c22b613cfafbc56e990475297c4bc27ba8f6e4c49be82738d75"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "tools": [
+    {
+      "annotations": {
+        "readOnlyHint": false
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "updated"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "note_id"
+        ]
+      },
+      "description": "Update a synthetic note; this operation modifies stored data.",
+      "name": "note_update"
+    }
+  ]
+}
