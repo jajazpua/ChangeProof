@@ -8,6 +8,16 @@
 
 > **Available today:** owner-supervised, manually reviewed compatibility checks. **Not yet available:** public self-service analysis API, unattended paid MCP endpoint or automated checkout. The backend and private infrastructure are not distributed here.
 
+## Preview the report you receive
+
+[![ChangeProof synthetic MCP and OpenAPI report preview](docs/assets/compatibility-demo-preview.svg)](demo/README.md)
+
+*Visual preview of the [published synthetic sample](ChangeProof_Sample_Compatibility_Report.md): 8 finding records, 7 HIGH review-priority items and 1 REVIEW. **Illustration only** — not a live API check, independent accuracy benchmark or a customer case.*
+
+**[Explore the HTML demo and how to open it](demo/README.md)** · **[View HTML source](demo/ChangeProof_Compatibility_Demo.html)** · **[Inspect machine-readable demo findings](demo/findings.json)**
+
+The HTML demonstration is a **standalone local file**. GitHub displays HTML source rather than hosting or executing the file. Open the [demo guide](demo/README.md) to download and view it in a browser. No separate site is created.
+
 ## See the problem in 10 seconds
 
 An MCP tool keeps the same name, but a previously optional argument becomes required:
@@ -58,9 +68,25 @@ No GitHub token, production access, installation, wallet key or private data is 
 
 **[Start a free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)** · [Public GitHub pilot form](https://github.com/jajazpua/ChangeProof/issues/new?template=pilot-request.yml)
 
-## For teams that need more than a pilot
+## Work with ChangeProof
 
-Have a larger migration, multiple specifications or a recurring change-monitoring requirement? **[Request a scoped quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)**. Scope, deliverables, price and payment method are agreed manually **before** any paid work. There is no live automated payment processing.
+**One compatibility question, or a larger API/MCP migration?** Choose the request that fits your situation:
+
+| Service | Best for | Next step |
+| --- | --- | --- |
+| **Free supervised pilot** | One focused compatibility question using two public or sanitized definitions | **[Request a free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)** |
+| **Scoped paid review** | Larger migrations, multiple tools or operations, higher-volume reviews, or repeat monitoring needs | **[Request a manual quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)** |
+
+### Deliverables to agree before the review
+
+- **Reviewed findings:** what changed, where, and which changes are breaking candidates versus items needing human review.
+- **Inspectable evidence:** affected tool/operation/schema locations, before/after facts and hashes where original inputs are supplied.
+- **Integration recommendations:** targeted tests for actual callers, generated clients or deployment policy.
+- **Report format:** a human-readable summary plus structured findings; HTML/JSON files and reproducibility materials when supported and agreed for the case.
+
+**Commercial terms:** scope, format, turnaround, price and payment method are agreed **manually before paid work begins**. There is no automatic checkout or public unattended analysis API. We will not request production credentials or private contracts in public GitHub issues.
+
+**[See an example of the deliverable format](demo/README.md)** · **[Get a scoped quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)**
 
 ## Scope and integrity
 
