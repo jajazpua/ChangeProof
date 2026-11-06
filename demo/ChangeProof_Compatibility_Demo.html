@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="ChangeProof synthetic MCP and OpenAPI compatibility report demonstration. No live integrations or client validation.">
+<title>ChangeProof — Synthetic MCP + OpenAPI Compatibility Report</title>
+<style>
+:root {color-scheme:dark;--bg:#0b1423;--panel:#14253a;--panel2:#192d44;--border:#304960;--text:#f0f7ff;--sub:#afc4d9;--blue:#61bdff;--teal:#76ddd2;--orange:#ffce7e;--red:#ffafa2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 15% 0,#173352 0,transparent 31%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration:none}
+.wrap{max-width:1230px;margin:auto;padding:32px 24px 78px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:30px}
+.brand{display:flex;gap:12px;align-items:center;font-size:22px;font-weight:780;letter-spacing:-.04em}
+.mark{width:38px;height:38px;display:grid;place-items:center;background:linear-gradient(140deg,#2582f9,#1e5d9e);border-radius:11px;font-size:23px}
+.topnote{font-size:13px;color:var(--sub)}
+.hero{padding:35px 36px;border:1px solid #497d99;border-radius:20px;background:linear-gradient(116deg,#203e5b,#13243b 75%);box-shadow:0 12px 35px #03091155}
+.eyebrow{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-bottom:15px}
+.pill{font-size:12px;font-weight:800;letter-spacing:.06em;border:1px solid #549baa;color:#a7f6ff;border-radius:999px;padding:5px 12px;background:#12313b}
+.pill.outline{color:#b5cce0;background:#263b52;border-color:#47627b}
+h1{font-size:clamp(28px,4vw,47px);letter-spacing:-.04em;line-height:1.13;margin:0 0 14px}
+h2{font-size:24px;letter-spacing:-.027em;margin:0 0 16px}
+h3{font-size:17px;margin:0 0 12px}
+.lead{max-width:820px;font-size:17px;color:#d5e6f5;margin:0 0 19px}
+.fine{color:var(--sub);font-size:13px}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 30px}
+.metric{border:1px solid var(--border);border-radius:15px;background:var(--panel);padding:18px 19px}
+.metric strong{font-size:39px;display:block;letter-spacing:-.035em;line-height:1.12}
+.metric span{font-size:13px;color:#bdd3e6}
+.metric.high{border-color:#8b5560;background:#2a242f}.metric.high strong{color:var(--red)}
+.metric.review{border-color:#927342;background:#2b2925}.metric.review strong{color:var(--orange)}
+.metric.ok{border-color:#3e7e84;background:#193139}.metric.ok strong{color:var(--teal)}
+section{margin:38px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:26px 27px}
+.panel + .panel{margin-top:15px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:14px}
+.section-head p{margin:0;color:var(--sub);font-size:14px}
+.tabs{display:flex;gap:9px;margin:15px 0 19px;flex-wrap:wrap}
+.tabs a{color:#deefff;border:1px solid #426782;border-radius:999px;padding:8px 13px;font-size:13px;background:#1b344c;text-decoration:none}
+.tabs a:hover{background:#284c6b}
+.scroll{overflow-x:auto;border:1px solid #304960;border-radius:11px}
+table{border-collapse:collapse;width:100%;min-width:850px}
+thead{background:#23405b}
+th{color:#bcd4e9;font-size:12px;text-align:left;padding:13px 16px;text-transform:uppercase;letter-spacing:.07em}
+td{padding:15px 16px;border-top:1px solid #30465e;font-size:14px;vertical-align:top}
+tbody tr:nth-child(even){background:#1a3046}
+.rownum{color:#7c9eb9;font-variant-numeric:tabular-nums}
+td strong{display:block;color:#f1f7ff}
+td small{display:block;font-size:11px;color:#9bb5cd;overflow-wrap:anywhere;margin-top:6px}
+.mono,code{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace}
+.priority,.source{display:inline-block;border-radius:7px;font-size:12px;font-weight:800;letter-spacing:.03em;padding:4px 8px}
+.priority.high{background:#65404d;color:#ffd2c8}
+.priority.review{background:#69542f;color:#ffe4a5}
+.source.mcp{background:#23435d;color:#9fe1ff}
+.source.openapi{background:#2d375c;color:#b3bfff}
+.action-list{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.action-list li{display:flex;gap:14px;align-items:flex-start}
+.action-list li p{margin:4px 0 0;color:var(--sub)}
+.actionnum{flex:0 0 28px;height:28px;border-radius:8px;background:#21517a;color:#c8eaff;text-align:center;line-height:28px;font-weight:bold}
+.subtle{font-weight:400;font-size:12px;color:var(--sub)}
+.digest-group + .digest-group{margin-top:24px}
+.digest{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;padding:7px 0;align-items:start}
+.digest span{color:#b5cee5;font-size:13px}
+.digest code{font-size:12px;overflow-wrap:anywhere;color:#b0ebf0;letter-spacing:-.01em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:19px}
+.notice{border-left:4px solid var(--orange);background:#2b2b2d;padding:19px 21px;border-radius:0 13px 13px 0;color:#f5e2bc}
+.notice strong{display:block;margin-bottom:4px}
+.notice p{margin:0}
+.list{padding-left:20px;margin:10px 0 0;color:#d1e1ef}.list li{margin:8px 0}
+.cta{margin-top:40px;background:linear-gradient(105deg,#183955,#1c3545);border:1px solid #558bad;padding:25px 28px;border-radius:16px}
+.cta p{color:#d4e7f8;max-width:850px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:19px}
+.button{border-radius:10px;padding:12px 16px;font-weight:750;background:#2b8cf0;color:white;text-decoration:none}
+.button.alt{background:#173751;border:1px solid #6caccf;color:#e7f6ff}
+.footer{border-top:1px solid #2c455f;margin-top:38px;padding-top:17px;color:var(--sub);font-size:12px}
+@media(max-width:850px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}.hero{padding:24px}.wrap{padding:18px 14px 40px}}
+@media(max-width:550px){.metrics{grid-template-columns:1fr 1fr;gap:8px}.metric{padding:12px}.metric strong{font-size:29px}.metric span{font-size:11px}.top{align-items:start;flex-direction:column}.panel{padding:18px 15px}.digest{grid-template-columns:1fr;gap:3px}h2{font-size:21px}}
+@media print{ :root{color-scheme:light;--bg:#fff;--panel:#fff;--panel2:#fff;--border:#aab8c5;--text:#182d43;--sub:#435b74} body{background:white;color:#17283b}a{color:#185dac}.hero{background:#eef5fb;color:#142d45;box-shadow:none}.hero h1,.lead,.panel h2,.panel h3,.metric strong,td strong{color:#132b43}.metric,.metric.high,.metric.review,.metric.ok{background:white;border-color:#aab8c5}.metric span,.fine{color:#435b74}.scroll{overflow:visible}table{min-width:0}thead{background:#e5eef6}td{border-color:#d9e2eb}tbody tr:nth-child(even){background:#f5f8fb}.source,.priority{border:1px solid #b8bdc4}.notice{background:#fff6df;color:#40351b}.cta{background:#edf5fa}.cta p{color:#30445c}.button{color:#17395a;background:#dbeefa;border:1px solid #aac9dc}section{break-inside:avoid} }
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top" aria-label="Product header">
+  <div class="brand"><div class="mark" aria-hidden="true">✓</div>ChangeProof</div>
+  <div class="topnote">MCP &amp; OpenAPI Compatibility Analysis · Example report</div>
+</header>
+<div class="hero">
+  <div class="eyebrow"><span class="pill">SYNTHETIC DEMONSTRATION</span><span class="pill outline">NO CUSTOMER DATA</span><span class="pill outline">NO LIVE EXECUTION</span></div>
+  <h1>Compatibility review report</h1>
+  <p class="lead">Illustrative evidence-backed review of changes in MCP tool definitions and OpenAPI contracts, based on the previously published ChangeProof V1.0 synthetic sample.</p>
+  <p class="fine">Result status: WARN on both synthetic sources · The findings below are review priorities, not verified production failures.</p>
+</div>
+
+<section id="summary" aria-labelledby="summary-title">
+  <h2 id="summary-title">Executive summary</h2>
+  <div class="metrics">
+    <div class="metric"><strong>8</strong><span>Finding records</span></div>
+    <div class="metric high"><strong>7</strong><span>HIGH review priority</span></div>
+    <div class="metric review"><strong>1</strong><span>REVIEW item</span></div>
+    <div class="metric ok"><strong>2</strong><span>Synthetic fixture categories</span></div>
+  </div>
+  <div class="panel">
+    <p style="margin-top:0">The example highlights an <strong>MCP tool input-schema change</strong> and changed advisory hints for <code>send_email</code>, alongside <strong>OpenAPI security and referenced-model changes</strong> and removal of <code>GET /reports</code>.</p>
+    <div class="notice"><strong>Scope matters</strong><p>This is a presentation of recorded synthetic findings, not a rerun of the proprietary ChangeProof engine. Eight records do not mean eight independent runtime failures. No actual service, account or client was tested.</p></div>
+  </div>
+</section>
+
+<nav class="tabs" aria-label="Report sections"><a href="#findings">All findings</a><a href="#next-steps">Recommended tests</a><a href="#evidence">Evidence</a><a href="#limits">Limitations</a><a href="#request">Request a review</a></nav>
+
+<section id="findings" aria-labelledby="findings-title">
+  <div class="section-head"><h2 id="findings-title">Contract findings</h2><p>3 MCP + 5 OpenAPI · HIGH indicates priority for human review</p></div>
+  <div class="scroll">
+    <table><thead><tr><th>#</th><th>Source</th><th>Target &amp; finding</th><th>Priority</th><th>What it means</th></tr></thead><tbody>
+<tr><td class="rownum">01</td><td><span class="source mcp">MCP</span></td><td><strong>send_email</strong><small class="mono">MCP_DESCRIPTION_CHANGED</small></td><td><span class="priority high">HIGH</span></td><td>Tool instructions changed; inspect for misleading or prompt-injection content.</td></tr>
+<tr><td class="rownum">02</td><td><span class="source mcp">MCP</span></td><td><strong>send_email</strong><small class="mono">MCP_INPUT_SCHEMA_CHANGED</small></td><td><span class="priority high">HIGH</span></td><td>Input contract changed; existing agent calls may require adaptation.</td></tr>
+<tr><td class="rownum">03</td><td><span class="source mcp">MCP</span></td><td><strong>send_email</strong><small class="mono">MCP_HINTS_CHANGED</small></td><td><span class="priority high">HIGH</span></td><td>Advisory safety annotations changed; annotations do not prove actual behavior.</td></tr>
+<tr><td class="rownum">04</td><td><span class="source openapi">OPENAPI</span></td><td><strong>GET /health</strong><small class="mono">API_OPERATION_ADDED</small></td><td><span class="priority review">REVIEW</span></td><td>A new API operation is declared.</td></tr>
+<tr><td class="rownum">05</td><td><span class="source openapi">OPENAPI</span></td><td><strong>GET /records</strong><small class="mono">API_SECURITY_CHANGED</small></td><td><span class="priority high">HIGH</span></td><td>The declared operation-level security requirement changed.</td></tr>
+<tr><td class="rownum">06</td><td><span class="source openapi">OPENAPI</span></td><td><strong>GET /records</strong><small class="mono">API_REFERENCED_SCHEMAS_CHANGED</small></td><td><span class="priority high">HIGH</span></td><td>Referenced component schema definitions changed.</td></tr>
+<tr><td class="rownum">07</td><td><span class="source openapi">OPENAPI</span></td><td><strong>GET /records</strong><small class="mono">API_OPERATION_CONTRACT_CHANGED</small></td><td><span class="priority high">HIGH</span></td><td>The operation definition changed; client impact is not proven.</td></tr>
+<tr><td class="rownum">08</td><td><span class="source openapi">OPENAPI</span></td><td><strong>GET /reports</strong><small class="mono">API_OPERATION_REMOVED</small></td><td><span class="priority high">HIGH</span></td><td>An API operation was removed from the new contract.</td></tr>
+    </tbody></table>
+  </div>
+  <p class="fine">A change to a description, security hint or schema is evidence of definition-level drift. These fields cannot by themselves establish an exploit, side effect or downstream crash.</p>
+</section>
+
+<section id="next-steps" aria-labelledby="steps-title">
+  <h2 id="steps-title">Recommended follow-up validation</h2>
+  <div class="panel">
+    <ol class="action-list">
+<li><div class="actionnum">1</div><div><strong>send_email <span class="subtle">· MCP_INPUT_SCHEMA_CHANGED</span></strong><p>Validate known caller argument examples against both input schemas.</p></div></li>
+<li><div class="actionnum">2</div><div><strong>send_email <span class="subtle">· MCP_HINTS_CHANGED</span></strong><p>Review tool privileges and execution policies independently of annotations.</p></div></li>
+<li><div class="actionnum">3</div><div><strong>GET /records <span class="subtle">· API_SECURITY_CHANGED</span></strong><p>Check the actual authentication and authorization contract in integration tests.</p></div></li>
+<li><div class="actionnum">4</div><div><strong>GET /reports <span class="subtle">· API_OPERATION_REMOVED</span></strong><p>Check whether callers invoke the removed operation and verify the migration path.</p></div></li>
+    </ol>
+    <p class="fine">Recommendations are testing suggestions. They were not executed as part of this demonstration.</p>
+  </div>
+</section>
+
+<section id="evidence" aria-labelledby="evidence-title">
+  <h2 id="evidence-title">Evidence and traceability</h2>
+  <div class="two">
+    <div class="panel">
+      <h3>Source of record</h3>
+      <p>This page re-presents findings from the repository's existing <a href="../ChangeProof_Sample_Compatibility_Report.md">synthetic sample report</a>. The <a href="findings.json">companion JSON</a> lists the eight displayed records and their recommended checks.</p>
+      <p class="fine">No fresh ChangeProof engine run or independent byte-level verification was performed while preparing this HTML layout.</p>
+    </div>
+    <div class="panel">
+      <h3>Reading the hashes</h3>
+      <p>The digests below are reproduced from the published sample. SHA-256 identifies specific recorded input bytes, but cannot independently establish their origin. Raw synthetic fixtures are not redistributed by this HTML demo.</p>
+    </div>
+  </div>
+  <div class="panel" style="margin-top:15px">
+<div class="digest-group"><h3>MCP fixtures</h3><div class="digest"><span>Before SHA-256</span><code>9e0a9f456047f92c9bf669a9d19177f185cf16c7a8ee370a6c2435781ac959dc</code></div><div class="digest"><span>After SHA-256</span><code>2ec1ec1401bf7ddcbb6ebd0bf6809304c53943d4a3b29be717aaf31e943c8d2b</code></div></div>
+<div class="digest-group"><h3>OPENAPI fixtures</h3><div class="digest"><span>Before SHA-256</span><code>e7aa319986dc37862254e2b1abaf52fa17ff9c909069f15725a94cbe59e3d589</code></div><div class="digest"><span>After SHA-256</span><code>dfdab27da2e3ea6ce4489c602a4794a191d9284bbcc6ae8a988c08bd68304bc4</code></div></div>
+  </div>
+</section>
+
+<section id="limits" aria-labelledby="limits-title">
+  <h2 id="limits-title">Interpretation and limitations</h2>
+  <div class="panel">
+    <ul class="list">
+      <li><strong>Demo input:</strong> synthetic, non-sensitive MCP and OpenAPI 3.x definitions; not a real customer integration.</li>
+      <li><strong>No runtime proof:</strong> no external API call, MCP tool invocation, deployed application test or permission test.</li>
+      <li><strong>No general-accuracy claim:</strong> no benchmark, accuracy percentage, production safety guarantee or independent certification.</li>
+      <li><strong>Priority ≠ exploit:</strong> HIGH and REVIEW describe attention needed, not measured vulnerability severity or failure probability.</li>
+      <li><strong>Next step:</strong> inspect actual consuming agents or clients and run focused integration/contract tests.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="request" class="cta" aria-labelledby="cta-title">
+  <h2 id="cta-title">Need a review of your own contract changes?</h2>
+  <p>Provide two public or sanitized MCP <code>tools/list</code> or OpenAPI revisions. Start with one focused compatibility question. We manually review pilot scope and findings before delivery.</p>
+  <div class="actions">
+    <a class="button" href="https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot">Request a free supervised pilot</a>
+    <a class="button alt" href="https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml">Request a scoped paid quote</a>
+  </div>
+  <p class="fine">The public service is not an unattended analysis API. Paid work requires agreement on scope, timing and price. Do not submit credentials or private contracts in public issues.</p>
+</section>
+
+<footer class="footer">ChangeProof · Synthetic example report · Based on a published sample, not customer data, endorsement or evidence of production execution. © ChangeProof product presentation.</footer>
+</main>
+</body>
+</html>
