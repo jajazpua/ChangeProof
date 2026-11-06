@@ -1,0 +1,136 @@
+{
+  "case": "microsoft/playwright-mcp#1828",
+  "source_repository": "microsoft/playwright",
+  "pinned_commit": "58d69dcc392af3a6994eab0323dc2e883f05f396",
+  "method": "read-only source audit",
+  "runtime_execution": false,
+  "changeproof_engine_executed": false,
+  "findings": [
+    {
+      "id": "CP-PW-001",
+      "category": "defaulted_input",
+      "source_path": "packages/playwright-core/src/tools/backend/screenshot.ts",
+      "line": 33,
+      "match": "scale: z.enum(['css', 'device']).default('css')",
+      "target": "browser_take_screenshot.scale",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/screenshot.ts#L33"
+    },
+    {
+      "id": "CP-PW-002",
+      "category": "defaulted_input",
+      "source_path": "packages/playwright-core/src/tools/backend/console.ts",
+      "line": 27,
+      "match": "level: z.enum(['error', 'warning', 'info', 'debug']).default('info')",
+      "target": "browser_console_messages.level",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/console.ts#L27"
+    },
+    {
+      "id": "CP-PW-003",
+      "category": "defaulted_input",
+      "source_path": "packages/playwright-core/src/tools/backend/network.ts",
+      "line": 38,
+      "match": "static: z.boolean().default(false)",
+      "target": "browser_network_requests.static",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/network.ts#L38"
+    },
+    {
+      "id": "CP-PW-004",
+      "category": "defaulted_input",
+      "source_path": "packages/playwright-core/src/tools/backend/mouse.ts",
+      "line": 95,
+      "match": "deltaX: z.number().default(0)",
+      "target": "browser_mouse_wheel.deltaX",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/mouse.ts#L95"
+    },
+    {
+      "id": "CP-PW-005",
+      "category": "defaulted_input",
+      "source_path": "packages/playwright-core/src/tools/backend/mouse.ts",
+      "line": 96,
+      "match": "deltaY: z.number().default(0)",
+      "target": "browser_mouse_wheel.deltaY",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/mouse.ts#L96"
+    },
+    {
+      "id": "CP-PW-006",
+      "category": "schema_conversion",
+      "source_path": "packages/playwright-core/src/tools/utils/mcp/tool.ts",
+      "line": 34,
+      "match": "inputSchema: zod.toJSONSchema(tool.inputSchema)",
+      "target": "toMcpTool.inputSchema",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/utils/mcp/tool.ts#L34"
+    },
+    {
+      "id": "CP-PW-007",
+      "category": "annotation_mapping",
+      "source_path": "packages/playwright-core/src/tools/utils/mcp/tool.ts",
+      "line": 38,
+      "match": "destructiveHint: !readOnly",
+      "target": "toMcpTool.annotations",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/utils/mcp/tool.ts#L38"
+    },
+    {
+      "id": "CP-PW-008",
+      "category": "file_side_effect",
+      "source_path": "packages/playwright-core/src/tools/backend/screenshot.ts",
+      "line": 83,
+      "match": "await response.addFileResult(resolvedFile, data);",
+      "target": "browser_take_screenshot",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/screenshot.ts#L83"
+    },
+    {
+      "id": "CP-PW-009",
+      "category": "file_side_effect",
+      "source_path": "packages/playwright-core/src/tools/backend/console.ts",
+      "line": 40,
+      "match": "await response.addResult('Console', text",
+      "target": "browser_console_messages.filename",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/console.ts#L40"
+    },
+    {
+      "id": "CP-PW-010",
+      "category": "mixed_action",
+      "source_path": "packages/playwright-core/src/tools/backend/tabs.ts",
+      "line": 34,
+      "match": "type: 'action'",
+      "target": "browser_tabs",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/tabs.ts#L34"
+    },
+    {
+      "id": "CP-PW-011",
+      "category": "unbounded_numeric",
+      "source_path": "packages/playwright-core/src/tools/backend/wait.ts",
+      "line": 30,
+      "match": "time: z.number().optional()",
+      "target": "browser_wait_for.time",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/wait.ts#L30"
+    },
+    {
+      "id": "CP-PW-012",
+      "category": "numeric_branch",
+      "source_path": "packages/playwright-core/src/tools/backend/wait.ts",
+      "line": 42,
+      "match": "const time = params.time ? Math.min(maxWaitSeconds, params.time) : undefined;",
+      "target": "browser_wait_for.time",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/wait.ts#L42"
+    },
+    {
+      "id": "CP-PW-013",
+      "category": "read_only_annot",
+      "source_path": "packages/playwright-core/src/tools/backend/snapshot.ts",
+      "line": 47,
+      "match": "type: 'readOnly'",
+      "target": "browser_snapshot",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/backend/snapshot.ts#L47"
+    },
+    {
+      "id": "CP-PW-014",
+      "category": "annotation_mapping",
+      "source_path": "packages/playwright-core/src/tools/utils/mcp/tool.ts",
+      "line": 37,
+      "match": "readOnlyHint: readOnly",
+      "target": "toMcpTool.annotations.readOnlyHint",
+      "source_url": "https://github.com/microsoft/playwright/blob/58d69dcc392af3a6994eab0323dc2e883f05f396/packages/playwright-core/src/tools/utils/mcp/tool.ts#L37"
+    }
+  ]
+}
