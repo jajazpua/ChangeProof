@@ -14,9 +14,9 @@ An MCP tool keeps the same name, but a previously optional argument becomes requ
 
 | Contract | Accepted input requirement |
 | --- | --- |
-| **BEFORE** | \`required: ["query"]\` |
-| **AFTER** | \`required: ["query", "workspace_id"]\` |
-| **ChangeProof-style finding** | **BREAKING CANDIDATE** — an existing caller that sends only \`query\` may be rejected by the new input schema. |
+| **BEFORE** | `required: ["query"]` |
+| **AFTER** | `required: ["query", "workspace_id"]` |
+| **ChangeProof-style finding** | **BREAKING CANDIDATE** — an existing caller that sends only `query` may be rejected by the new input schema. |
 
 *Illustrative synthetic example. A contract finding is not proof that any particular production agent failed.*
 
@@ -26,7 +26,7 @@ ChangeProof separates **what changed**, **who could be affected**, and **what st
 
 | Case | What was examined | Evidence |
 | --- | --- | --- |
-| **UniFi Network API** | Two real OpenAPI contract versions; a required \`members\` → \`units\` switch-stack representation change and related schema migration | [Static compatibility report](ChangeProof_UniFi_68_Validated_Pilot_Report.md) |
+| **UniFi Network API** | Two real OpenAPI contract versions; a required `members` → `units` switch-stack representation change and related schema migration | [Static compatibility report](ChangeProof_UniFi_68_Validated_Pilot_Report.md) |
 | **Apache ShenYu #7935** | Synthetic MCP before/after contract snapshots, compatibility directions and recorded ChangeProof results | [Reproducible fixture](pilots/shenyu-7935/README.md) · [Submitted PR #8309](https://github.com/apache/shenyu/pull/8309) |
 | **Denkeeper #583** | Synthetic MCP descriptor and safety-metadata drift; 44 scoped independent offline checks | [Fixture and findings](pilots/denkeeper-583/README.md) |
 | **Microsoft Playwright MCP #1828** | Source-level review of defaulted parameters, annotations and input validation; 14 evidence anchors | [Source-anchored report](https://github.com/jajazpua/ChangeProof/blob/415a46e13ab2c132ecfde931ddb7ecf5f081117b/pilots/playwright-mcp-1828/README.md) |
@@ -39,7 +39,7 @@ These examples have **different validation levels**. The Playwright report is a 
 
 | Review area | Typical result |
 | --- | --- |
-| **MCP \`tools/list\`** | Added/removed tools, required argument changes, schema/enum differences, metadata and annotation drift |
+| **MCP `tools/list`** | Added/removed tools, required argument changes, schema/enum differences, metadata and annotation drift |
 | **OpenAPI** | Added/removed operations; changes to request/response schemas, referenced models and required properties |
 | **Evidence and reproducibility** | Source references, relevant before/after facts, machine-readable findings and hashes when inputs are available |
 | **Compatibility assessment** | Breaking candidates vs. review-only changes; input/output direction and known limitations |
@@ -50,7 +50,7 @@ A report is not a guarantee of runtime compatibility or a substitute for authori
 ## How the supervised pilot works
 
 1. **Ask one question.** Submit a [free pilot request](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot), e.g. “Will this new required tool argument break old callers?”
-2. **Supply contract versions.** Link to two **public or sanitized** MCP \`tools/list\` JSON snapshots or OpenAPI JSON/YAML specifications, preferably with version identifiers.
+2. **Supply contract versions.** Link to two **public or sanitized** MCP `tools/list` JSON snapshots or OpenAPI JSON/YAML specifications, preferably with version identifiers.
 3. **Owner reviews suitability.** We verify the scope and safe inputs, then run an appropriate local analysis where supported.
 4. **Receive reviewed findings.** We inspect the results before delivery, distinguish structural changes from compatibility judgments, and disclose what was not tested.
 
