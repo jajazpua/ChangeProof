@@ -1,100 +1,83 @@
 # ChangeProof
 
-**Know what changed before your AI agent or API client breaks.**
+### Catch breaking MCP and OpenAPI changes before they reach your users.
 
-**Evidence-backed MCP & OpenAPI contract compatibility reviews.** Compare two versions of a tool definition or API specification, identify potential breaking changes, and receive inspectable findings with scope and uncertainty stated plainly.
+**Independent, evidence-backed contract reviews for API teams, AI-agent developers and MCP maintainers.**
 
-**[Request a free compatibility pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)** · **[Explore public evidence](docs/PUBLIC_EVIDENCE.md)** · **[Request a paid quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)**
+Compare two versions of a public or sanitized interface. Understand **what changed**, **which callers may be affected**, and **what to test before rollout** — with a reviewed, source-linked report instead of an opaque PASS/FAIL.
 
-> **Available today:** owner-supervised, manually reviewed compatibility checks. **Not yet available:** public self-service analysis API, unattended paid MCP endpoint or automated checkout. The backend and private infrastructure are not distributed here.
+**[Request a scoped review & quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)** · **[See a sample report](demo/README.md)** · [Start a focused free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)
 
-## Preview the report you receive
-
-[![ChangeProof synthetic MCP and OpenAPI report preview](docs/assets/compatibility-demo-preview.svg)](demo/README.md)
-
-*Visual preview of the [published synthetic sample](ChangeProof_Sample_Compatibility_Report.md): 8 finding records, 7 HIGH review-priority items and 1 REVIEW. **Illustration only** — not a live API check, independent accuracy benchmark or a customer case.*
-
-**[Explore the HTML demo and how to open it](demo/README.md)** · **[View HTML source](demo/ChangeProof_Compatibility_Demo.html)** · **[Inspect machine-readable demo findings](demo/findings.json)**
-
-The HTML demonstration is a **standalone local file**. GitHub displays HTML source rather than hosting or executing the file. Open the [demo guide](demo/README.md) to download and view it in a browser. No separate site is created.
-
-## See the problem in 10 seconds
-
-An MCP tool keeps the same name, but a previously optional argument becomes required:
-
-| Contract | Accepted input requirement |
-| --- | --- |
-| **BEFORE** | `required: ["query"]` |
-| **AFTER** | `required: ["query", "workspace_id"]` |
-| **ChangeProof-style finding** | **BREAKING CANDIDATE** — an existing caller that sends only `query` may be rejected by the new input schema. |
-
-*Illustrative synthetic example. A contract finding is not proof that any particular production agent failed.*
-
-ChangeProof separates **what changed**, **who could be affected**, and **what still needs a test**.
-
-## Real public evidence, with precise limits
-
-| Case | What was examined | Evidence |
-| --- | --- | --- |
-| **UniFi Network API** | Two real OpenAPI contract versions; a required `members` → `units` switch-stack representation change and related schema migration | [Static compatibility report](ChangeProof_UniFi_68_Validated_Pilot_Report.md) |
-| **Apache ShenYu #7935** | Synthetic MCP before/after contract snapshots, compatibility directions and recorded ChangeProof results | [Reproducible fixture](pilots/shenyu-7935/README.md) · [Submitted PR #8309](https://github.com/apache/shenyu/pull/8309) |
-| **Denkeeper #583** | Synthetic MCP descriptor and safety-metadata drift; 44 scoped independent offline checks | [Fixture and findings](pilots/denkeeper-583/README.md) |
-| **Microsoft Playwright MCP #1828** | Source-level review of defaulted parameters, annotations and input validation; 14 evidence anchors | [Source-anchored report](https://github.com/jajazpua/ChangeProof/blob/415a46e13ab2c132ecfde931ddb7ecf5f081117b/pilots/playwright-mcp-1828/README.md) |
-
-**[Browse the full public evidence index, including 1platformlabs](docs/PUBLIC_EVIDENCE.md)** · **[Open a synthetic sample report](ChangeProof_Sample_Compatibility_Report.md)**
-
-These examples have **different validation levels**. The Playwright report is a manual code audit, not a ChangeProof engine execution; Denkeeper uses an independent fixture verifier; ShenYu is a synthetic contribution, not a merged production integration. None is presented as a paying-customer testimonial or third-party certification.
-
-## What a compatibility review delivers
-
-| Review area | Typical result |
-| --- | --- |
-| **MCP `tools/list`** | Added/removed tools, required argument changes, schema/enum differences, metadata and annotation drift |
-| **OpenAPI** | Added/removed operations; changes to request/response schemas, referenced models and required properties |
-| **Evidence and reproducibility** | Source references, relevant before/after facts, machine-readable findings and hashes when inputs are available |
-| **Compatibility assessment** | Breaking candidates vs. review-only changes; input/output direction and known limitations |
-| **Actionable next steps** | Targeted contract/integration tests for affected clients before deployment |
-
-A report is not a guarantee of runtime compatibility or a substitute for authorization, integration testing or application-specific validation. Multiple technical findings may describe one underlying migration.
-
-## How the supervised pilot works
-
-1. **Ask one question.** Submit a [free pilot request](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot), e.g. “Will this new required tool argument break old callers?”
-2. **Supply contract versions.** Link to two **public or sanitized** MCP `tools/list` JSON snapshots or OpenAPI JSON/YAML specifications, preferably with version identifiers.
-3. **Owner reviews suitability.** We verify the scope and safe inputs, then run an appropriate local analysis where supported.
-4. **Receive reviewed findings.** We inspect the results before delivery, distinguish structural changes from compatibility judgments, and disclose what was not tested.
-
-No GitHub token, production access, installation, wallet key or private data is required for a public/sanitized pilot. Please never post secrets in GitHub Issues.
-
-**[Start a free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)** · [Public GitHub pilot form](https://github.com/jajazpua/ChangeProof/issues/new?template=pilot-request.yml)
-
-## Work with ChangeProof
-
-**One compatibility question, or a larger API/MCP migration?** Choose the request that fits your situation:
-
-| Service | Best for | Next step |
-| --- | --- | --- |
-| **Free supervised pilot** | One focused compatibility question using two public or sanitized definitions | **[Request a free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)** |
-| **Scoped paid review** | Larger migrations, multiple tools or operations, higher-volume reviews, or repeat monitoring needs | **[Request a manual quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)** |
-
-### Deliverables to agree before the review
-
-- **Reviewed findings:** what changed, where, and which changes are breaking candidates versus items needing human review.
-- **Inspectable evidence:** affected tool/operation/schema locations, before/after facts and hashes where original inputs are supplied.
-- **Integration recommendations:** targeted tests for actual callers, generated clients or deployment policy.
-- **Report format:** a human-readable summary plus structured findings; HTML/JSON files and reproducibility materials when supported and agreed for the case.
-
-**Commercial terms:** scope, format, turnaround, price and payment method are agreed **manually before paid work begins**. There is no automatic checkout or public unattended analysis API. We will not request production credentials or private contracts in public GitHub issues.
-
-**[See an example of the deliverable format](demo/README.md)** · **[Get a scoped quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)**
-
-## Scope and integrity
-
-- Contract-level comparisons are conservative: they do not prove deployment safety, tool side effects, schema-semantic equivalence or a specific client failure without further evidence.
-- SHA-256 identifies the exact supplied bytes, not the authenticity of an upstream origin.
-- Public case studies are technical contributions and investigations, not vendor endorsements or customer references.
-- This repository publishes the product overview and selected evidence, **not** the proprietary ChangeProof backend, private keys or production infrastructure. No license for unpublished code is implied.
+> **Service today:** supervised contract analysis and manual review. No unattended hosted analysis API or automated checkout. Share only public or sanitized material; pricing and delivery terms are agreed before paid work.
 
 ---
 
-**Have two contract revisions?** [Request a supervised ChangeProof compatibility check](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot).
+## A review you can act on
+
+| You need to know… | ChangeProof can help you inspect… |
+| --- | --- |
+| **Will an MCP agent still call this tool?** | Tool additions/removals, newly required arguments, input/output schema changes, enum drift and advisory metadata. |
+| **What changed in this OpenAPI release?** | Removed or added operations, request/response structure, required and nullable fields, referenced models and contract-level risk candidates. |
+| **Where should the engineering team focus?** | The exact affected interface locations, before/after evidence, review priorities and targeted downstream tests. |
+
+**Your deliverable:** a human-readable compatibility assessment with traceable findings, relevant input hashes when available, and practical verification steps. Structured JSON and an HTML report can be included when supported and agreed for the scoped engagement.
+
+## Preview the deliverable
+
+[![Preview of ChangeProof synthetic MCP and OpenAPI compatibility report](docs/assets/compatibility-demo-preview.svg)](demo/README.md)
+
+**[Open the report demo](demo/README.md)** · [Inspect the synthetic JSON findings](demo/findings.json) · [Read the original sample](ChangeProof_Sample_Compatibility_Report.md)
+
+*The preview is based on an existing **synthetic** sample with eight recorded findings. It demonstrates presentation and contract reasoning, not a live customer test, accuracy benchmark or proof of eight runtime failures. GitHub displays the HTML file as source; the demo guide explains how to open it locally.*
+
+## Public evidence you can inspect
+
+We publish the inputs, reasoning and limitations available for each case. These are **technical investigations and open-source contributions, not customer testimonials or vendor endorsements**.
+
+| Case | Public evidence |
+| --- | --- |
+| **UniFi Network API** — version 10.4.57 → 11.0.97 | [OpenAPI compatibility report](ChangeProof_UniFi_68_Validated_Pilot_Report.md) identifying the switch-stack response migration and related model changes. Static analysis; no confirmed production client failure. |
+| **Apache ShenYu** — MCP contract changes | [Reproducible synthetic regression fixture](pilots/shenyu-7935/README.md) with recorded ChangeProof findings and independent checks; [upstream PR #8309](https://github.com/apache/shenyu/pull/8309). Not a deployed runtime integration. |
+| **Denkeeper** — descriptor drift | [Synthetic MCP fixture and analysis](pilots/denkeeper-583/README.md) covering schema, output and annotation changes; 44 scoped offline checks reported. Not a Denkeeper runtime test. |
+| **Playwright MCP** — schema export audit | [Manual source-linked review](https://github.com/jajazpua/ChangeProof/blob/415a46e13ab2c132ecfde931ddb7ecf5f081117b/pilots/playwright-mcp-1828/README.md); **not** a ChangeProof engine run. |
+
+**[View the complete evidence and case-study index](docs/PUBLIC_EVIDENCE.md)**
+
+## Choose the right engagement
+
+| | **Free compatibility pilot** | **Scoped paid review** |
+| --- | --- | --- |
+| **Best for** | One focused question about two public/sanitized MCP or OpenAPI versions. | A release or migration decision involving multiple changes, interfaces or higher review effort. |
+| **Scope** | A limited supervised assessment, subject to suitability and capacity. | Agreed deliverables, comparison boundaries and report format before work starts. |
+| **How to start** | **[Request a free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)** | **[Request a quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)** |
+
+**Need a price?** Describe the contract type, two versions (or public repository revisions), the change you are planning, and the question the review should answer. We will scope the work and agree a price and delivery terms manually. A quote request does not create an order or collect payment.
+
+## How it works
+
+1. **Tell us the decision.** For example: “Can existing clients safely adopt this OpenAPI update?” or “Will an old agent call the new MCP tool schema?”
+2. **Provide a BEFORE and AFTER definition.** Public or sanitized JSON/YAML, release links or revision identifiers are sufficient for initial scoping. No credentials or production access.
+3. **Confirm scope and price (if paid).** The review is performed under owner supervision; findings are checked before delivery.
+4. **Use the evidence.** Receive a scoped report and focused test recommendations. Validate actual application behavior with your own integration tests.
+
+## Straight answers
+
+**Is this a SaaS or an automated MCP endpoint?**  
+Not yet. ChangeProof currently offers an owner-supervised analysis workflow, with manually reviewed requests and results.
+
+**Does a HIGH finding prove production breakage or a security vulnerability?**  
+No. Findings identify structural risks and review priorities. Runtime behavior, permissions and downstream failures require their own tests.
+
+**Can you guarantee that generated SDKs will compile?**  
+No. OpenAPI changes can suggest risks for generated clients, but generator-specific type-system compatibility and compiled SDK behavior must be tested separately.
+
+**Can I send private contracts or credentials through GitHub Issues?**  
+No. GitHub Issues are public. Share only public or sanitized material; do not post tokens, personal data, confidential API definitions or payment details.
+
+---
+
+### Have an MCP or OpenAPI change to review?
+
+**[Get a scoped compatibility review & quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)** · [Try a focused free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot) · [Explore the technical evidence](docs/PUBLIC_EVIDENCE.md)
+
+<sub>ChangeProof is a proprietary, owner-operated analysis product. This repository publishes product information and selected evidence, not the private backend. SHA-256 values identify the exact supplied bytes, not their upstream authenticity.</sub>
