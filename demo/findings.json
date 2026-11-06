@@ -1,0 +1,101 @@
+{
+  "kind": "synthetic-compatibility-demonstration",
+  "product": "ChangeProof",
+  "source_document": "ChangeProof_Sample_Compatibility_Report.md",
+  "source_note": "Uses recorded synthetic findings from the existing published V1.0 sales-pilot sample; no new engine or live endpoint run.",
+  "execution": {
+    "changeproof_engine_rerun": false,
+    "live_network_requests": false,
+    "production_customer_case": false,
+    "independent_confirmation": false
+  },
+  "summary": {
+    "sources": 2,
+    "findings": 8,
+    "high_priority": 7,
+    "review_priority": 1
+  },
+  "input_digests": {
+    "MCP": {
+      "before": "9e0a9f456047f92c9bf669a9d19177f185cf16c7a8ee370a6c2435781ac959dc",
+      "after": "2ec1ec1401bf7ddcbb6ebd0bf6809304c53943d4a3b29be717aaf31e943c8d2b"
+    },
+    "OPENAPI": {
+      "before": "e7aa319986dc37862254e2b1abaf52fa17ff9c909069f15725a94cbe59e3d589",
+      "after": "dfdab27da2e3ea6ce4489c602a4794a191d9284bbcc6ae8a988c08bd68304bc4"
+    }
+  },
+  "findings": [
+    {
+      "source": "MCP",
+      "priority": "HIGH",
+      "code": "MCP_DESCRIPTION_CHANGED",
+      "target": "send_email",
+      "interpretation": "Tool instructions changed; inspect for misleading or prompt-injection content.",
+      "recommended_test": "Review the exact old and new description, then verify agent routing against approved instructions."
+    },
+    {
+      "source": "MCP",
+      "priority": "HIGH",
+      "code": "MCP_INPUT_SCHEMA_CHANGED",
+      "target": "send_email",
+      "interpretation": "Input contract changed; existing agent calls may require adaptation.",
+      "recommended_test": "Validate known caller argument examples against both input schemas."
+    },
+    {
+      "source": "MCP",
+      "priority": "HIGH",
+      "code": "MCP_HINTS_CHANGED",
+      "target": "send_email",
+      "interpretation": "Advisory safety annotations changed; annotations do not prove actual behavior.",
+      "recommended_test": "Review tool privileges and execution policies independently of annotations."
+    },
+    {
+      "source": "OPENAPI",
+      "priority": "REVIEW",
+      "code": "API_OPERATION_ADDED",
+      "target": "GET /health",
+      "interpretation": "A new API operation is declared.",
+      "recommended_test": "Review intended audience, authentication, and documentation."
+    },
+    {
+      "source": "OPENAPI",
+      "priority": "HIGH",
+      "code": "API_SECURITY_CHANGED",
+      "target": "GET /records",
+      "interpretation": "The declared operation-level security requirement changed.",
+      "recommended_test": "Check the actual authentication and authorization contract in integration tests."
+    },
+    {
+      "source": "OPENAPI",
+      "priority": "HIGH",
+      "code": "API_REFERENCED_SCHEMAS_CHANGED",
+      "target": "GET /records",
+      "interpretation": "Referenced component schema definitions changed.",
+      "recommended_test": "Regenerate and exercise representative client models."
+    },
+    {
+      "source": "OPENAPI",
+      "priority": "HIGH",
+      "code": "API_OPERATION_CONTRACT_CHANGED",
+      "target": "GET /records",
+      "interpretation": "The operation definition changed; client impact is not proven.",
+      "recommended_test": "Compare request and response fixtures with a representative consumer."
+    },
+    {
+      "source": "OPENAPI",
+      "priority": "HIGH",
+      "code": "API_OPERATION_REMOVED",
+      "target": "GET /reports",
+      "interpretation": "An API operation was removed from the new contract.",
+      "recommended_test": "Check whether callers invoke the removed operation and verify the migration path."
+    }
+  ],
+  "limits": [
+    "Findings describe definitions from synthetic fixtures only.",
+    "Priority is not probability of failure or a vulnerability severity score.",
+    "Inputs' hash strings are copied from the published synthetic sample; input files are not redistributed in this demo.",
+    "Metadata changes are not proof of runtime side effects.",
+    "No real integration, security penetration, payment or customer validation test was performed."
+  ]
+}
