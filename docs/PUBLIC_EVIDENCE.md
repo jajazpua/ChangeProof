@@ -61,6 +61,12 @@ The report proposes focused acceptance tests for `tools/list` and actual argumen
 
 A read-only investigation found that the site serves committed versioned OpenAPI files while a drift workflow reports changes without updating those files. The recommended remediation is a reviewed specification-refresh PR, with verification after merge. Some full before/after counts come from the upstream comparator rather than our independent execution, as the report explains.
 
+## Visual HTML demonstration — report presentation
+
+**[View the preview and standalone HTML instructions](../demo/README.md)** · **[Read the complete HTML source](../demo/ChangeProof_Compatibility_Demo.html)** · **[Inspect JSON findings](../demo/findings.json)**
+
+The HTML layout re-presents the existing synthetic sample: 8 finding records (7 HIGH review-priority, 1 REVIEW), with explicitly stated scope, SHA-256 values and recommended follow-up tests. It is **not** a new engine run, customer report or live integration test. GitHub does not render HTML files as hosted webpages; follow the guide to open the file locally.
+
 ## Synthetic demo — what a ChangeProof-style finding looks like
 
 [View the sample MCP/OpenAPI report](../ChangeProof_Sample_Compatibility_Report.md)
