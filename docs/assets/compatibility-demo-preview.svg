@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="736" viewBox="0 0 1280 736" role="img" aria-labelledby="title desc">
+<title id="title">ChangeProof — synthetic MCP and OpenAPI compatibility report preview</title>
+<desc id="desc">Illustrative dashboard based on the published synthetic ChangeProof sample report: eight findings, seven high review priority and one review item. No production execution or customer validation.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0c1728"/><stop offset="1" stop-color="#101c30"/></linearGradient>
+  <linearGradient id="header" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#19375b"/><stop offset="1" stop-color="#0e2037"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2a83fb"/><stop offset="1" stop-color="#23b5b2"/></linearGradient>
+</defs>
+<rect width="1280" height="736" rx="22" fill="url(#bg)"/>
+<rect x="1.5" y="1.5" width="1277" height="733" rx="20.5" fill="none" stroke="#334863" stroke-width="3"/>
+<rect x="28" y="28" width="1224" height="98" rx="16" fill="url(#header)"/>
+<path d="M61 54 L83 46 L105 54 L103 76 C102 91 92 100 83 105 C73 100 64 91 63 76 Z" fill="#2373cc" stroke="#75d4ff" stroke-width="2"/>
+<path d="M72 76 L80 84 L95 65" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="125" y="71" fill="#eff7ff" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700">ChangeProof</text>
+<text x="125" y="104" fill="#bdd4ec" font-family="Arial,Helvetica,sans-serif" font-size="17">MCP + OpenAPI compatibility review</text>
+<rect x="941" y="49" width="282" height="49" rx="11" fill="#21384b" stroke="#63c6e6"/>
+<text x="1082" y="70" fill="#7ce3ed" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" text-anchor="middle">SYNTHETIC DEMO</text>
+<text x="1082" y="88" fill="#bbd2e4" font-family="Arial,Helvetica,sans-serif" font-size="12" text-anchor="middle">No live API or client tests</text>
+<text x="34" y="165" fill="#e9f2fc" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700">Compatibility analysis • Sample findings</text>
+<text x="34" y="190" fill="#a9bfd8" font-family="Arial,Helvetica,sans-serif" font-size="15">Source: existing ChangeProof V1.0 synthetic MCP / OpenAPI report</text>
+
+<rect x="34" y="215" width="291" height="103" rx="14" fill="#192d43" stroke="#3e5875"/>
+<text x="54" y="249" fill="#a8c2dd" font-family="Arial,Helvetica,sans-serif" font-size="16">Finding records</text>
+<text x="54" y="298" fill="#f5f9ff" font-family="Arial,Helvetica,sans-serif" font-size="43" font-weight="700">8</text>
+<rect x="344" y="215" width="291" height="103" rx="14" fill="#302b36" stroke="#a25f64"/>
+<text x="364" y="249" fill="#f1b7b4" font-family="Arial,Helvetica,sans-serif" font-size="16">HIGH review priority</text>
+<text x="364" y="298" fill="#ff9990" font-family="Arial,Helvetica,sans-serif" font-size="43" font-weight="700">7</text>
+<rect x="654" y="215" width="291" height="103" rx="14" fill="#322d21" stroke="#aa8343"/>
+<text x="674" y="249" fill="#e7d3a2" font-family="Arial,Helvetica,sans-serif" font-size="16">REVIEW priority</text>
+<text x="674" y="298" fill="#f6ce79" font-family="Arial,Helvetica,sans-serif" font-size="43" font-weight="700">1</text>
+<rect x="964" y="215" width="282" height="103" rx="14" fill="#18343d" stroke="#338a94"/>
+<text x="984" y="249" fill="#a9e0e5" font-family="Arial,Helvetica,sans-serif" font-size="16">Fixture categories</text>
+<text x="984" y="296" fill="#7ee5df" font-family="Arial,Helvetica,sans-serif" font-size="33" font-weight="700">MCP  ·  OpenAPI</text>
+
+<rect x="34" y="338" width="1212" height="318" rx="15" fill="#15263b" stroke="#314d6d"/>
+<text x="56" y="377" fill="#f0f7ff" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700">Representative findings</text>
+<text x="1199" y="376" fill="#9eb8d1" font-family="Arial,Helvetica,sans-serif" font-size="13" text-anchor="end">4 of 8 shown</text>
+<rect x="54" y="395" width="1172" height="39" rx="7" fill="#223852"/>
+<text x="76" y="420" fill="#bcd2e8" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700">SOURCE</text>
+<text x="230" y="420" fill="#bcd2e8" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700">TARGET</text>
+<text x="584" y="420" fill="#bcd2e8" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700">CHANGE TYPE</text>
+<text x="1087" y="420" fill="#bcd2e8" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700">PRIORITY</text>
+
+<line x1="54" y1="484" x2="1226" y2="484" stroke="#2d4562"/>
+<line x1="54" y1="538" x2="1226" y2="538" stroke="#2d4562"/>
+<line x1="54" y1="592" x2="1226" y2="592" stroke="#2d4562"/>
+<text x="76" y="466" fill="#7ed9ee" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700">MCP</text>
+<text x="230" y="466" fill="#ecf5ff" font-family="Arial,Helvetica,sans-serif" font-size="16">send_email</text>
+<text x="584" y="466" fill="#c8d7ea" font-family="Arial,Helvetica,sans-serif" font-size="15">Input schema changed</text>
+<rect x="1067" y="447" width="114" height="28" rx="7" fill="#683e48"/>
+<text x="1124" y="466" fill="#ffd2cb" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" text-anchor="middle">HIGH</text>
+
+<text x="76" y="520" fill="#7ed9ee" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700">MCP</text>
+<text x="230" y="520" fill="#ecf5ff" font-family="Arial,Helvetica,sans-serif" font-size="16">send_email</text>
+<text x="584" y="520" fill="#c8d7ea" font-family="Arial,Helvetica,sans-serif" font-size="15">Safety hints changed (advisory)</text>
+<rect x="1067" y="501" width="114" height="28" rx="7" fill="#683e48"/>
+<text x="1124" y="520" fill="#ffd2cb" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" text-anchor="middle">HIGH</text>
+
+<text x="76" y="574" fill="#9ba8ff" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700">OpenAPI</text>
+<text x="230" y="574" fill="#ecf5ff" font-family="Arial,Helvetica,sans-serif" font-size="16">GET /reports</text>
+<text x="584" y="574" fill="#c8d7ea" font-family="Arial,Helvetica,sans-serif" font-size="15">Operation removed</text>
+<rect x="1067" y="555" width="114" height="28" rx="7" fill="#683e48"/>
+<text x="1124" y="574" fill="#ffd2cb" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" text-anchor="middle">HIGH</text>
+
+<text x="76" y="628" fill="#9ba8ff" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700">OpenAPI</text>
+<text x="230" y="628" fill="#ecf5ff" font-family="Arial,Helvetica,sans-serif" font-size="16">GET /health</text>
+<text x="584" y="628" fill="#c8d7ea" font-family="Arial,Helvetica,sans-serif" font-size="15">Operation added</text>
+<rect x="1067" y="609" width="114" height="28" rx="7" fill="#6b5733"/>
+<text x="1124" y="628" fill="#ffe3a9" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" text-anchor="middle">REVIEW</text>
+
+<rect x="34" y="675" width="1212" height="40" rx="11" fill="#10273e" stroke="#2b5378"/>
+<circle cx="58" cy="695" r="10" fill="#53bbe6"/><text x="58" y="700" fill="#09233a" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" text-anchor="middle">i</text>
+<text x="78" y="701" fill="#b9d5ef" font-family="Arial,Helvetica,sans-serif" font-size="15">Review priority is not proof of runtime failure. Synthetic inputs only; no customer or production validation.</text>
+</svg>
