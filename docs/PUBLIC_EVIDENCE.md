@@ -4,6 +4,8 @@
 
 ChangeProof publishes inspectable MCP/OpenAPI compatibility research. **These are different kinds of evidence, not a list of paying customers, third-party certifications or production deployments.** A source-anchored audit, a synthetic test fixture and a ChangeProof-generated report answer different questions.
 
+Version labels identify each recorded run or experimental build. Older reports are historical evidence, not descriptions of the current build or a release timeline.
+
 ## Evidence at a glance
 
 | Case | Evidence type | Main technical result | Scope |
