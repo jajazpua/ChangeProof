@@ -28,6 +28,32 @@ The recorded ChangeProof `1.1.0rc9.dev1` staging run reported:
 
 These locations trace **one underlying enum removal**, not multiple independent defects. Existing callers that still use `libopus` warrant migration review and targeted tests.
 
+## Reproduce the public-source checks
+
+With Python 3.10 or newer, run this from the repository root. No dependency installation is needed:
+
+```bash
+python -B pilots/immich-28325/verify.py
+```
+
+The independent verifier fetches the two pinned public files into memory, checks their exact byte identities, confirms the single enum removal and 48-schema closure, reconstructs the recorded scope hashes, and checks the two component witnesses. It does not save or redistribute the upstream specifications.
+
+For an offline run, supply your own exact copies of both pinned files:
+
+```bash
+python -B pilots/immich-28325/verify.py --before before.json --after after.json
+```
+
+Both paths are required together. Byte changes, including altered line endings, fail the pinned-source check. Success prints a JSON `PASS` and exits 0; verification or download failure exits 1; invalid arguments exit 2. Network reads use a 30-second socket-operation timeout, not a guaranteed total runtime deadline.
+
+The verifier uses only Python's standard library. Its direct string/enum check is intentionally limited to this simple component, not a general OpenAPI or JSON Schema validator. It verifies public contract facts and reconstructed scope hashes; it **does not rerun ChangeProof** or reproduce its finding labels, CLI risk exits, SARIF or identical-input control.
+
+Offline verifier regression tests use original synthetic test data, not Immich snapshots:
+
+```bash
+python -B -m unittest discover -s tests -p "test_immich_verifier.py" -v
+```
+
 ## Independent checks
 
 A separate source and artifact check, without importing or rerunning ChangeProof, confirmed the source hashes, the 48-schema reference closure and the report's canonical input hashes. Local source bytes also matched the Git blob identifiers returned by GitHub for the pinned revisions.
