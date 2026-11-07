@@ -6,7 +6,7 @@
 
 Compare two versions of a public or sanitized interface. Understand **what changed**, **which callers may be affected**, and **what to test before rollout** — with a reviewed, source-linked report instead of an opaque PASS/FAIL.
 
-**[Request a scoped review & quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)** · **[See a sample report](demo/README.md)** · [Start a focused free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)
+**[Request a scoped paid review on the website](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/quote)** · [GitHub quote form (alternative)](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml) · **[See a sample report](demo/README.md)** · [Start a focused free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)
 
 > **Service today:** supervised contract analysis and manual review. No unattended hosted analysis API or automated checkout. Share only public or sanitized material; pricing and delivery terms are agreed before paid work.
 
@@ -50,7 +50,7 @@ We publish the inputs, reasoning and limitations available for each case. These 
 | --- | --- | --- |
 | **Best for** | One focused question about two public/sanitized MCP or OpenAPI versions. | A release or migration decision involving multiple changes, interfaces or higher review effort. |
 | **Scope** | A limited supervised assessment, subject to suitability and capacity. | Agreed deliverables, comparison boundaries and report format before work starts. |
-| **How to start** | **[Request a free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)** | **[Request a quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)** |
+| **How to start** | **[Request a free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot)** | **[Request a quote on our website](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/quote)** or [use GitHub](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml) |
 
 **Need a price?** Describe the contract type, two versions (or public repository revisions), the change you are planning, and the question the review should answer. We will scope the work and agree a price and delivery terms manually. A quote request does not create an order or collect payment.
 
@@ -79,6 +79,6 @@ No. GitHub Issues are public. Share only public or sanitized material; do not po
 
 ### Have an MCP or OpenAPI change to review?
 
-**[Get a scoped compatibility review & quote](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml)** · [Try a focused free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot) · [Explore the technical evidence](docs/PUBLIC_EVIDENCE.md)
+**[Get a scoped compatibility review & quote](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/quote)** · [GitHub quote alternative](https://github.com/jajazpua/ChangeProof/issues/new?template=quote-request.yml) · [Try a focused free pilot](https://changeproof-agent-checks.russet-spark-1861.chatgpt.site/#/pilot) · [Explore the technical evidence](docs/PUBLIC_EVIDENCE.md)
 
 <sub>ChangeProof is a proprietary, owner-operated analysis product. This repository publishes product information and selected evidence, not the private backend. SHA-256 values identify the exact supplied bytes, not their upstream authenticity.</sub>
