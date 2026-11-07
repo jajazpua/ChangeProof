@@ -37,6 +37,7 @@ We publish the inputs, reasoning and limitations available for each case. These 
 | Case | Public evidence |
 | --- | --- |
 | **UniFi Network API** — version 10.4.57 → 11.0.97 | [OpenAPI compatibility report](ChangeProof_UniFi_68_Validated_Pilot_Report.md) identifying the switch-stack response migration and related model changes. Static analysis; no confirmed production client failure. |
+| **Immich #28325** — deprecated audio-codec value removed | [Scoped OpenAPI case](pilots/immich-28325/README.md): recorded offline ChangeProof staging run and independent schema checks. One enum removal affects two request fields; no live server or client failure is claimed. |
 | **Apache ShenYu** — MCP contract changes | [Reproducible synthetic regression fixture](pilots/shenyu-7935/README.md) with recorded ChangeProof findings and independent checks; [upstream PR #8309](https://github.com/apache/shenyu/pull/8309). Not a deployed runtime integration. |
 | **Denkeeper** — descriptor drift | [Synthetic MCP fixture and analysis](pilots/denkeeper-583/README.md) covering schema, output and annotation changes; 44 scoped offline checks reported. Not a Denkeeper runtime test. |
 | **Playwright MCP** — schema export audit | [Manual source-linked review](https://github.com/jajazpua/ChangeProof/blob/415a46e13ab2c132ecfde931ddb7ecf5f081117b/pilots/playwright-mcp-1828/README.md); **not** a ChangeProof engine run. |
