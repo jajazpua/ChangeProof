@@ -1,0 +1,41 @@
+name: Evidence checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: evidence-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out public evidence
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - name: Install fixture validator
+        run: python -m pip install "jsonschema==4.25.1"
+      - name: Check data, hashes and relative links
+        run: python -B scripts/check_evidence.py
+      - name: Test independent checkers
+        run: python -B -m unittest discover -s tests -v
+      - name: Verify Denkeeper synthetic fixtures
+        run: python -B pilots/denkeeper-583/verify.py
+      - name: Verify ShenYu synthetic fixtures
+        run: python -B pilots/shenyu-7935/verify_fixture.py
+      - name: Verify pinned public Immich sources
+        run: python -B pilots/immich-28325/verify.py

@@ -42,7 +42,7 @@ We publish the inputs, reasoning and limitations available for each case. These 
 | **Denkeeper** — descriptor drift | [Synthetic MCP fixture and analysis](pilots/denkeeper-583/README.md) covering schema, output and annotation changes; 44 scoped offline checks reported. Not a Denkeeper runtime test. |
 | **Playwright MCP** — schema export audit | [Manual source-linked review](https://github.com/jajazpua/ChangeProof/blob/415a46e13ab2c132ecfde931ddb7ecf5f081117b/pilots/playwright-mcp-1828/README.md); **not** a ChangeProof engine run. |
 
-**[View the complete evidence and case-study index](docs/PUBLIC_EVIDENCE.md)**
+**[View the complete evidence and case-study index](docs/PUBLIC_EVIDENCE.md)** · [How evidence is checked](docs/VERIFICATION.md)
 
 ## Choose the right engagement
 
